@@ -54,7 +54,7 @@ assets/
 ---
 
 ## 📸 Live Preview  
-link:
+link: https://me-fahmid.github.io/diu-gpa-calculator/
 
 ---
 
