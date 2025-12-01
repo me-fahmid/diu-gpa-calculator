@@ -1,0 +1,99 @@
+:root{
+  --accent:#00eaff;
+  --glass:rgba(255,255,255,0.07);
+  --bg1:#03131f;
+  --bg2:#0a2633;
+  --muted:rgba(255,255,255,0.7);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:#fff;
+  padding:20px;
+  display:flex;
+  justify-content:center;
+}
+.app{
+  width:100%;max-width:1100px;
+  display:grid;grid-template-columns:1fr 420px;
+  gap:20px;
+}
+@media(max-width:900px){.app{grid-template-columns:1fr}}
+
+/* Panels */
+.panel,.summary{
+  background:var(--glass);border-radius:20px;
+  padding:20px;backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.05);
+  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+}
+
+/* Title */
+.logo{width:45px;height:45px;border-radius:12px;
+  background:linear-gradient(135deg,#00eaff,#4fc3f7);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;color:#002}
+.title{display:flex;gap:15px;align-items:center}
+.lead{font-size:12px;color:var(--muted)}
+
+/* Inputs */
+label{font-size:13px;font-weight:600;margin-bottom:6px;display:block}
+input,select{
+  width:100%;padding:10px 12px;border:none;border-radius:12px;
+  background:rgba(255,255,255,0.15);color:#fff;font-size:14px;
+  box-shadow:inset 0 4px 10px rgba(0,0,0,0.4);
+}
+input::placeholder{color:#b2eaff}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+
+/* Buttons */
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.btn{
+  padding:12px 14px;border:none;border-radius:12px;font-weight:700;cursor:pointer;
+}
+.btn.primary{background:var(--accent);color:#002}
+.btn.ghost{background:none;color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.btn.warn{background:#ffd166;color:#002}
+
+/* Summary panel */
+.gpa-val{font-size:32px;font-weight:800;color:var(--accent)}
+
+/* Table */
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,0.1)}
+th{color:#9fdcff}
+.pill{padding:5px 8px;border-radius:8px;font-weight:700}
+.pill.green{background:rgba(0,255,170,0.15);color:#0f0}
+.pill.red{background:rgba(255,80,80,0.15);color:#ff5454}
+.icon-btn{background:none;border:none;color:#ff8080;font-size:16px;cursor:pointer}
+
+/* Small responsive tweaks for PDF preview consistency */
+@media print {
+  body { background: #fff; color: #000; }
+  .panel, .summary { box-shadow: none; background: #fff; border: none; }
+}
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #bdeaff;
+  opacity: 0.8;
+}
+
+.footer span {
+  font-weight: 700;
+  color: #00eaff;
+}
+
+.footer a {
+  color: #4fc3f7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

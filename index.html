@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DIU GPA Calculator — Sunny Edition (Final)</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PDF Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+
+  <!-- App JS -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+
+    <!-- LEFT PANEL -->
+    <div class="panel">
+
+      <div class="title">
+        <div class="logo">DIU</div>
+        <div>
+          <h2>DIU GPA Calculator</h2>
+          <p class="lead">Final Guess + Required Grades · Professional PDF export</p>
+        </div>
+      </div>
+
+      <!-- Student Info -->
+      <div class="form-grid">
+        <input id="stuName" placeholder="Student Name (optional)">
+        <input id="stuId" placeholder="Student ID (optional)">
+      </div>
+
+      <!-- Course Inputs -->
+      <div class="form-grid" style="margin-top:15px">
+        <div>
+          <label>Course Name</label>
+          <input id="courseName" placeholder="e.g. CSE 221">
+        </div>
+        <div>
+          <label>Course Type</label>
+          <select id="courseType" onchange="loadFields()">
+            <option value="theory">Theory (3 credit)</option>
+            <option value="lab">Lab (1 credit)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Fields -->
+      <div id="fields" style="margin-top:10px"></div>
+
+      <!-- Left requirements box (slider area) -->
+      <div id="requirementsBox" style="margin-top:15px;color:#8ff;font-size:14px"></div>
+
+      <!-- Buttons -->
+      <div class="controls">
+        <button class="btn primary" onclick="addCourse()">Add</button>
+        <button class="btn ghost" onclick="saveData()">Save</button>
+        <button class="btn ghost" onclick="clearData()">Clear</button>
+        <button class="btn warn" onclick="downloadPDF()">PDF</button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="summary" id="summaryCard">
+      <h3>Results</h3>
+
+      <div class="gpa-val" id="finalGPA">0.00</div>
+
+      <!-- Required Grade Table (Option B) -->
+      <div id="gradeReqPanel" style="margin-top:10px;font-size:14px;color:#8ff"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Total</th>
+            <th>Grade</th>
+            <th>GP</th>
+            <th>Credit</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+  </div>
+  <footer class="footer">
+  Built with ❤️ by <span>fahm.codes</span> · Follow on Instagram: 
+  <a href="https://instagram.com/fahm.codes" target="_blank">@fahm.codes</a>
+</footer>
+
+</body>
+</html>
